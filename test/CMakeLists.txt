@@ -1,0 +1,11 @@
+project(test)
+cmake_minimum_required(VERSION 2.6)
+message("project path: " ${PROJECT_SOURCE_DIR})
+FILE(GLOB TEST_SRC *.c *.cpp *.h)
+#set(CMAKE_BUILE_TYPE DEBUG)
+#add_subdirectory(../src)
+aux_source_directory(../src ACNET_SRC)
+include_directories(ACNET_INCLUDE ../src)
+add_definitions("-g -Wall")
+add_executable(test ${TEST_SRC} ${ACNET_SRC})
+
